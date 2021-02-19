@@ -34,12 +34,17 @@ function Game(id,params){
   let events = [];          //事件集合
   let index;                //当前布景索引
   let handle;               //帧动画控制
+  //初始化游戏引擎
+  this.init = function(){
+    index = 0;
+    // this.start();
+  };
+
   //活动对象构造
   let Item = function(params){
-    this.params = params||{};
-    this.id = 0;               //标志符
+    this.id = 0;               //在布景中的索引值
     this.stage = null;         //与所属布景绑定
-    this.settings = {
+    let settings = {
       x:0,					//位置坐标:横坐标
       y:0,					//位置坐标:纵坐标
       width:20,				//宽
@@ -62,12 +67,11 @@ function Game(id,params){
       update:function(){}, 	//更新参数信息
       draw:function(){}		//绘制
     };
-    Object.assign(this,this.settings,this.params);
+    Object.assign(this,settings,params);
   };
   //布景对象构造器
   let Stage = function(params){
-    this.params = params||{};
-    this.settings = {
+    let settings = {
       index:0,                        //布景索引
       status:0,						//布景状态,0表示未激活/结束,1表示正常,2表示暂停,3表示临时状态
       maps:[],						//地图队列
@@ -77,7 +81,7 @@ function Game(id,params){
       timeout:0,						//倒计时(用于过程动画状态判断)
       update:function(){}				//嗅探,处理布局下不同对象的相对关系
     };
-    Object.assign(this,this.settings,this.params);
+    Object.assign(this,settings,params);
   };
   //创建布景
   this.createStage = function(options){
@@ -86,6 +90,14 @@ function Game(id,params){
     stages.push(stage);
     return stage;
   };
+  Stage.prototype.createItem = function (params) {
+    let item = new Item(params);
+    item.stage = this;
+    item.id = this.items.length;
+    this.items.push(item);
+    return item;
+  };
+
 }
 
 export default Game
