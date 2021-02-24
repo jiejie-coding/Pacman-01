@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a2f3069-aa6c-44c7-afe3-abf36e4d0546" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mapData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
@@ -21,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectId" id="1oh8CeQKGhrEd1IX0va9VNjltR2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -44,11 +46,25 @@
       <option name="presentableId" value="Default" />
       <updated>1613727357750</updated>
       <workItem from="1613727382242" duration="1729000" />
-      <workItem from="1613729806250" duration="3835000" />
+      <workItem from="1613729806250" duration="5983000" />
+      <workItem from="1613871390104" duration="2402000" />
+      <workItem from="1614131857889" duration="10164000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -1,8 +1,12 @@
 import Game from './game.js'
+import mapData from "./mapData.js";
 
+console.log(mapData);
 let game = new Game('canvas');
-let stage = game.createStage();
 
+//启动页
+let stage = game.createStage();
+//Logo
 stage.createItem({
   x:game.width/2,
   y:game.height*.45,

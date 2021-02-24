@@ -28,6 +28,11 @@ if (!Date.now)
 
 function Game(id,params){
   let that = this;
+  let settings = {
+    width:960,						//画布宽度
+    height:640						//画布高度
+  };
+  Object.assign(that,settings,params);
   let $canvas = document.getElementById(id);
   let context = $canvas.getContext('2d'); //画布上下文
   let stages = [];           //布景对象队列
@@ -39,7 +44,40 @@ function Game(id,params){
     index = 0;
     // this.start();
   };
+  //动画开始
+  this.start = function () {
+    let f = 0;		//帧数计算
+    let fn = function() {
+      // let stage = stages[index];
+      context.clearRect(0, 0, that.width, that.height);		//清除画布
+      context.fillStyle = '#000';
+      context.fillRect(0, 0, that.width, that.height);
+      f++;
+      // console.log(f)
+      // if (stages[index].timeout) {
+      //   stages[index].timeout--;
+      // }
 
+
+      stages[index].items.forEach(function (item) {
+        if (!(f % item.frames)) {
+          item.times = f / item.frames;		   //计数器
+        }
+
+        // item.times++;
+        // $canvas.clear(that.context);
+        // console.log(item,item.times)
+        // if(item.times % item.frames === 0)
+        item.draw(context);
+        // else that.start()
+      });
+      requestAnimationFrame(fn);
+    }
+    requestAnimationFrame(fn);
+  };
+  this.stop = function () {
+    handler && clearInterval(handler);
+  }
   //活动对象构造
   let Item = function(params){
     this.id = 0;               //在布景中的索引值
